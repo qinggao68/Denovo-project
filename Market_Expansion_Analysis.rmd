@@ -2,7 +2,7 @@
 title: "Where to Expand?"
 author: "Christina Gao"
 date: "10/6/2021"
-output: output=github_document
+output: github_document
 ---
 
 ```{r setup, include=FALSE}
