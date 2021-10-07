@@ -21,5 +21,6 @@ In my analysis, the dataset that I found on the Homeland Infrastructure Foudatio
 
 # References
 [Homeland Infrastructure Foundation-Level Data (HIFLD) database - Nursing Homes] https://hifld-geoplatform.opendata.arcgis.com/datasets/geoplatform::nursing-homes/about
+
 [Leaflet for R] https://rstudio.github.io/leaflet/choropleths.html
 
