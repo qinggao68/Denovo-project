@@ -1,30 +1,308 @@
 ---
-title: "Where to Expand?"
+title: "Where to Expand?""
 author: "Christina Gao"
 date: "10/6/2021"
-output: github_document
+output: html_document
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+# Where Brookdale Senior Living Company Should Expand Into The Next Market?
+
+## Setting up the Workspace
+
+```{r echo = FALSE}
+
+# load packages
+library(leaflet)
+library(tidyverse)
+library(leaflet.extras)
+library(sf)
+library(readxl)
+library(dplyr)
+library(datasets)
+library(tidycensus)
+library(censusapi)
+library(htmltools)
+
+# clear the global env variables
+rm(list=ls())
+
+# load raw dataset retrieved from Homeland Infrastructure Foundation - Level Data(HIFL)
+HIFL_senior <- read.csv("Nursing_Homes.csv")
+
+# view top 10 observations
+head(HIFL_senior, n = 10)
+
 ```
 
-## R Markdown
+In this project, I plan to utilize the raw dataset that I retrieved from HIFL(<https://hifld-geoplatform.opendata.arcgis.com/datasets/geoplatform::nursing-homes/about>) to analyze the senior housing facilities/assisted care facilities in the United States. The raw data set contains all the top major players as well as mid-size to new entrants in the senior living space; however, the data itself contains partial of all the facilities own by each provider.
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+After researching into the senior housing industry, I found that Brookdale Senior Living is one of the largest providers in the U.S.(rank number 1 in multiple sites), so the remaining of this project will be exploring only Brookdale Senior Living and 776 rows of observations provided in the dataset.
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+Disclaimer: As of now, Brookdale has already expanded into the proposed state - Oregon. Since, I have not found an updated version of the senior housing facilities dataset, I have to use this outdated version. Nonetheless, the code can be reproduced once I find an updated version or be used to analyze another industry, specially in the healthcare industry.
 
-```{r cars}
-summary(cars)
+```{r}
+
+# load brookdale senior living facility raw dataset
+brookdale <- read_excel("brookdale_senior_raw.xlsx")
+
+# view top 10 observations
+head(brookdale, n = 10)
+
 ```
 
-## Including Plots
+The above table contains 13 columns. In this project, I will only be using predictors:
 
-You can also embed plots, for example:
+-   NAME -\> brookdale's properties names
+-   STATE
+-   STATUS -\> contains both OPEN and CLOSED facilities
+-   LATITUDE -\> will be used to construct the leaflet map
+-   LONGTITUDE -\> will be used to construct the leaflet map
 
-```{r pressure, echo=FALSE}
-plot(pressure)
+# Examine Which Properies Have Been Closed
+
+```{r}
+
+# create a leaflet map to display all the closed facilities
+closed_facilities <- 
+  brookdale %>%
+  filter(STATUS == "CLOSED") # filter facilities that have been closed
+  
+# create a leaflet map on closed_facilities variable
+leaflet(closed_facilities) %>%
+  addProviderTiles("Esri.WorldStreetMap") %>% # using a 3rd-party free map provider
+  addCircles(radius = 100, color = "red")
+
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+First, let's make sure that later I do not end up recommending opening at a location where Brookdale has exit that market. So, we can complete this task first by filtering the data to only contain the CLOSED locations. Then, we can use this newly created variable to construct a map using the leaflet package. As display above, I use the "pipe" operator to pipe the variable "closed_facilities" into the leaflet function(avoid writing the code multiple times), add in map tile of "Esri.WorldStreetMap" on top of the basemap and circles to the map to highlight the closed locations only in red mark.
+
+Since, the dataset provided us with the latitude and longitude of each location, behind the scene, the leaflet package will scan our column names for predictors - LATITUDE and LONGTITUDE and will automatically know which columns contain our coordinates.
+
+## Display a Cluster of Closed Locations at Designated States
+
+```{r}
+# display how many locations have been closed at that state
+
+leaflet(closed_facilities) %>%
+  addTiles() %>% 
+  addMarkers(clusterOptions = markerClusterOptions(freezeAtZoom = 3))
+
+```
+
+I have also created a map using the leaflet package again, except this time, I add in the clusterOptions to the addMarkers function which showcase a total of numbers of locations at each state. As shown above, we can see there are 4 states where Brookdale have presence in, some of the locations have been closed. Washington has the most closed facilities, whereas California has the least closed facilities. Which is very interesting as according to my research, WA is one of the top states, that the rate for elders to use senior living facilities is a lot higher than CA. (In addition, according to ConsumerAffairs, the population of age over 65 is around 15.1% as compare to) It could be multiple reasons that the senior leadership team at Brookdale has decided to closed these locations. Sometimes it could be: blah blah. However, we would need additional datasets on each of the the closed location vs the open location to find the a pattern or similarities among the closed locations to figure out why these locations have been closed. As for now, this is an interesting note to acknowledge/intake at the beginning.
+
+# Examine how many nursing home facilities have been closed and removed them
+
+```{r}
+
+# count how many facilities have been closed
+brookdale %>%
+  count(STATUS)
+
+# create a tibble named open_facilities
+open_facilities <-
+  brookdale %>%
+  filter(STATUS == "OPEN") %>%
+  select(-STATUS)
+
+```
+
+Instead, of counting the number of locations that have been closed, we can utilize the dplyr package's count function to quickly count the numbers of locations that have been closed, which is 25. Then, we can create a new tibble that drops rows of closed locations, so we are only left with open locations. The purpose of filtering out the open locations and removing closed locations specifically is that it will be use later to recommend the best markets for Brookdale to expand, as it doesn't make sense to suggest locations where Brookdale had exit that market.
+
+NOTE: Again, right now we are assuming that Brookdale haven't expand into the suggested market that I have discovered within the dataset.
+
+# Map out the Existing Brookdale Senior Living Facilities On A Heatmap
+
+```{r}
+
+# create a heatmap to identify where brookdale has presence in and what states brookdale have not yet expand into 
+brookdale_heatmap <-
+  open_facilities %>%
+  leaflet() %>%
+  addProviderTiles("CartoDB") %>%
+  addHeatmap(radius = 6)
+  
+
+# print the brookdale heatmap
+print(brookdale_heatmap)
+
+```
+
+By mapping all of Brookdale's existing locations using the leaflet package, we can start to explore white space markets. Since, Brookdale still has 751 existing locations across the U.S., we can construct a heatmap to map out all the existing locations. As shown above, we can see that there are couple states that Brookdale has yet expand into. If we zoom in, we can see, some states in the upper Midwest, Southcoast, and some states in the Eastcoast like MS, VT, Maine, Brookdale has yet expand into.
+
+# Summarizing How Many Existing Properties/Locations There Are In Each Existing Market
+
+```{r}
+
+# create a tibble named "brookdale existing locations" and count how many nursing home facilities there are
+# and arrange them in order of descending
+brookdale_existing_locations <- 
+  open_facilities %>%
+  count(STATE) %>%
+  arrange(desc(n))
+
+# print the facilities count 
+print(brookdale_existing_locations)
+```
+
+As we can see above, the top three states where Brookdale has the most presence in are TX, FL, and CA with 108, 92, 79 locations respectively as compared to some states where Brookdale only has 2 to 1 locations.
+
+```{r}
+# display the above summary and put into a leaflet map with markers
+leaflet(open_facilities) %>%
+  addProviderTiles("Esri.WorldStreetMap") %>% 
+  # addCircles(radius = 100, color = "red")
+  addMarkers()
+```
+
+By panning and zooming in, we can see that some of Brookdale's existing locations are located near interstate highways and some are located in suburbs.
+
+# Identify Which States Brookdale Does Not Has Market Presence
+
+```{r}
+
+# using the %in% to determine which states brookdale has market presence in  
+state.abb %in% brookdale_existing_locations$STATE
+brookdale_existing_locations %in% brookdale
+
+# save the states that brookdale does not has market presence in a vector 
+no_market_presence <- state.abb[!state.abb %in% brookdale_existing_locations$STATE]
+
+# print the facilities count 
+print(no_market_presence)
+
+```
+
+Earlier, we saw on the heatmap, there are couple states that potentially posed as "white-space" opportunities for Brookdale. Let's discovered which states Brookdale has no market presence in. We can achieve this task by using %in% operators. The %in% will assist us to determine which states Brookdale has market presence in and the output will be TRUE. Then, we can use the ! operator to accomplish the inverse by finding which states Brookdale has no market presence in, which the output is FALSE. Finally, we can print out the newly created variable - no_market_presence. As shown above, there are a total of 15 states, Brookdale has yet expand into.
+
+# Use Census API To Retrieve Elder Population Estimates
+
+```{r}
+
+# load all variable codes through API
+# and saved the retrieve data of ACS5 from us census 
+acs5 <- load_variables(year = 2019, dataset = "acs5")
+
+# view(acs5)
+
+# filter the variable by one concept - "sex by age"
+sex_by_age <- acs5 %>% 
+  filter(concept == "SEX BY AGE")
+
+# view(sex_by_age)
+
+# named and save the variables of total age group 65 and over for both sexes as a vector named elder_var for better readability
+elder_var <- c( male_65_66_age = "B01001_020",
+                male_67_69_age = "B01001_021",
+                male_70_74_age = "B01001_022",
+                male_75_79_age = "B01001_023",
+                male_80_84_age = "B01001_024",
+                male_84over_age = "B01001_025",
+                female_65_66_age = "B01001_044",
+                female_67_69_age = "B01001_045",
+                female_70_74_age = "B01001_046",
+                female_75_79_age = "B01001_047",
+                female_80_84_age = "B01001_048",
+                female_84over_age = "B01001_049")
+
+# Retrieve the 5yr ACS data based on state, county, year 
+elder_acs5 <- get_acs(state = "OR", geography = "county", variables = elder_var,
+                        geometry = TRUE, year = 2019)
+
+print(elder_acs5)
+
+```
+
+After researching, I discovered OR is one of the fastest states that has a growing population of elders which accounts around 17.6% out of its total pop.I also found that based on seniorhousingnews.com, OR is one of the states that has a significantly high use rate of using assisted living facilities of around 166 as compared to the national average of 62.(<https://seniorhousingnews.com/2016/09/25/states-seniors-use-assisted-living/>). With this in mind, we can utilize the tidycensus package to API the data from US Census website. Since, we are only interested in the elders population estimates, I filter the dataset only displaying males and females over 65 years and older.
+
+NOTE: The dataset that I API from the US Census website is the American Community Survey 5-YR data(ACS5), which dated from 2009 to 2019. By the time, I did this project, the most recent census results have yet been available to use, so I decided to used the ACS5 to gather the population estimates. Please also note that ACS5 contains the least current data as it spans from 2009 to 2019 as compared to ACS1 which only contains 2019 data. Since, I am gathering population estimates for the elders population in the U.S., it is better to use a data which contains a larger sample size and covers population estimates for all areas.
+
+# Using the ACS5 Data And Adds Polygons To The Leaflet Map 
+
+```{r}
+# using the group by function to group the elder_acs5 var to determine the highest est. elderly pop.
+proposed_loc <- elder_acs5 %>%
+  group_by(NAME) %>%
+  summarize(totalEst = sum(estimate)) %>%
+  arrange(desc(totalEst))
+
+# print proposed_loc
+print(proposed_loc)
+
+# create a color palette to color map by county pop estimate
+oregon_pal <- colorNumeric(palette = "plasma", domain = proposed_loc$estimate) # assign specific palette color to the map
+
+OR_pop_map <-
+  proposed_loc %>%
+  leaflet() %>%
+  addProviderTiles("CartoDB") %>%
+  addPolygons(stroke = FALSE, 
+              smoothFactor = 0.2, 
+              fillOpacity = 0.6, 
+              color = ~oregon_pal(totalEst),
+              label = ~paste0(NAME, ": ", formatC(totalEst, big.mark = ","))) %>% # adding label to the map
+  addLegend(pal = oregon_pal, values = ~totalEst, title = "Elderly Population Estimates by County")
+
+# print the elders pop of OR by county
+print(OR_pop_map)
+```
+
+We have come very far. We first discovered where Brookdale had exited the market, then discovered the numbers of states Brookdale still has market presence in, then the states where they could be potential "white-space" opportunities for Brookdale, then recommend a potential state based on industry research that Brookdale could enter. Finally, it is the time to examine further to as to where Brookdale should first enter.
+
+We can achieve this task by first group the county in OR, then sum up all the elder population estimates. As displayed in descending order, we can see that the top two counties which contain the largest elderly population estimates are Multnomah County and Washington County. I also created a choropleths map and added labels to display the results. By hovering the mouse over the map, we can see that closer to the East Coast, elderly population estimates are at the largest as compared to more inner to the state, elderly population estimates are extremely low, with Sherman County contains roughly 428 elders. With that being said, I believe Multnomah County and Washington County may posed the largest market opportunities for Brookdale to expand, given with an estimate of 104,899 and 76,361 respectively, as there's more opportunities for Brookdale to gain new patients out of this size of population as compared to only a few hundreds. 
+
+# Recommend Two Suggested Locations and Combined Them To Existing Locations
+
+```{r}
+
+# load the OR_proposed_county dataset
+oregon_proposed_county <- read_excel("OR_proposed_county.xlsx")
+
+# view top 10 observations
+head(oregon_proposed_county, n = 10)
+
+# filter and bind the proposed county to states that border OR for latter analysis 
+brookdale_research <-
+  open_facilities %>%
+  filter(STATE %in% c("CA", "WA", "ID", "NV")) %>%
+  select(COUNTY, STATE, LATITUDE, LONGITUDE) %>%
+  mutate(STATUS = "OPEN") %>%
+  bind_rows(oregon_proposed_county)
+  
+
+# print brookdale_research
+print(brookdale_research)
+
+```
+
+We can combined the proposed two locations and add in information of state abbreviation, status, county name, latitude, and longtitude to the previously created tibble - open_facilities and create a new variable named brookdale_research. This variable will only contain the border states of OR, which will then be used in our last step of this project. 
+
+# Map the open and proposed locations 
+
+```{r}
+
+# create a blue and red color palette to distinguish between open and proposed locations
+pal <- colorFactor(palette = c("Blue", "Red"), 
+                   domain = c("OPEN", "PROPOSED"))
+
+# map both the open and proposed locations
+
+proposed_map <- brookdale_research %>%
+  leaflet() %>%
+  addProviderTiles("CartoDB") %>%  # add CartoDB provider tile
+  addCircles(color = ~pal(STATUS)) %>% # apply the pal color palette
+  addCircles(data = oregon_proposed_county, 
+             weight = 2,   # parameter to control the circle boundary width
+             radius = 100 * 1609.34, # drawing circles within 100 miles of the two proposed locations(1 mile                                      # equal to 1609.34 meters)
+             color = ~pal(STATUS),
+             fill = FALSE)      # draw a circle with a 100 miles around the proposed locations
+  
+
+# print proposed_map
+print(proposed_map)
+
+```
+
+Finally, we can map out the proposed locations with states that border OR. This final step is to ensure that if Brookdale is planning for a de novo project nearby the two suggested locations. Brookdale can venture out within a targeted radius of miles, in my code, I set it as 100 miles, but this can be set to whatever the preferable radius will be. 
+
+We can see that the blue points represent the existing locations and the two red points represent the suggested two locations. So, if Brookdale is exploring de novo projects, they can venture out within the red circles as displayed in the leaflet map. 
