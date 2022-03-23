@@ -7,7 +7,7 @@ Furthermore, the codes can also be used to support denovos projects. Again, by m
 ## Additional Information
 In my analysis, the dataset that I found on the Homeland Infrastructure Foudation-Level is not up-to-dated. As of now, Brookdale has already expanded into the proposed state that I recommended in my project, which is Oregon. 
 
-# Project Scope(steps?) 
+# Project Scope 
 1. Examine the dataset 
 2. Examine and map out the closed locations
 3. Examine the numbers of existing locations 
@@ -19,6 +19,9 @@ In my analysis, the dataset that I found on the Homeland Infrastructure Foudatio
 9. Map out the census data 
 10. Proposed new market opportunities based on the company's targeted strategic goals 
 11. Map out the open and recommended locations 
+
+# Future Work
+I plan to deploy the outputs to a shiny, currently working on the app. 
 
 # References
 [Homeland Infrastructure Foundation-Level Data (HIFLD) database - Nursing Homes] https://hifld-geoplatform.opendata.arcgis.com/datasets/geoplatform::nursing-homes/about
