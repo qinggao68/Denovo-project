@@ -6,12 +6,12 @@ I hope this project will be useful during the M&A pre-screening stage to find a 
 
 # Key Findings
 
-This project focused on Brookdale Senior Living, which is one of the largest senior living providers in the U.S. Some of the key findings: 
-in the past years, Brookdale closed 25 facilities spanned across 4 states - WA, TX, Washington D.C., and CA
-Brookdale still has 751 facilities and has the most market presence in TX, FL, and CA with 108, 92, and 79 open facilities, respectively 
-I discovered there are 14 states that Brookdale has yet any market presence, they are: "AK", "HI", "IA", "ME", "MI", "MS", "NV". "NH". "NM", "ND", "OR", "PA", "SD", and "VT"
-conducted in-depth market research and found that OR is one of the fastest-growing states that has an increasing number of older adults
-then I found that Multnomah County and Washington County have the highest projected elderly population in 2019 
+This project focused on Brookdale Senior Living, which is one of the largest senior living providers in the U.S. Some of the key findings I found: 
+- in the past years, Brookdale closed 25 facilities spanned across 4 states - WA, TX, Washington D.C., and CA
+- Brookdale still has 751 facilities and has the most market presence in TX, FL, and CA with 108, 92, and 79 open facilities, respectively 
+- I discovered there are 14 states that Brookdale has yet any market presence, they are: "AK", "HI", "IA", "ME", "MI", "MS", "NV". "NH". "NM", "ND", "OR", "PA", "SD", and "VT"
+- conducted in-depth market research and found that OR is one of the fastest-growing states that has an increasing number of older adults
+- then I found that Multnomah County and Washington County have the highest projected elderly population in 2019 
 
 # Additional Information
 In my analysis, the dataset that I found on the Homeland Infrastructure Foudation-Level is not up-to-dated. As of now, Brookdale has already expanded into the proposed state that I recommended in my project, which is Oregon. And, the numbers of both closed and still open facilities may also not been up-to-dated. 
