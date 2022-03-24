@@ -30,7 +30,7 @@ In my analysis, the dataset that I found on the Homeland Infrastructure Foudatio
 11. Map out the open and recommended locations 
 
 # Future Work
-I plan to deploy the outputs on Shiny, currently working on the app. 
+I plan to deploy the outputs on Shiny server, currently working on the app. 
 
 # References
 [Homeland Infrastructure Foundation-Level Data (HIFLD) database - Nursing Homes] https://hifld-geoplatform.opendata.arcgis.com/datasets/geoplatform::nursing-homes/about
