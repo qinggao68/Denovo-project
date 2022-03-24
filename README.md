@@ -1,11 +1,20 @@
 # Purpose
 
-The purpose of this project is to create maps using various of mapping packages, particularly leaflet, leaflet.extras, etc to analyze the senior housing space. I specifically selected to focus only on Brookdale Senior Living as it is the largest provider in the U.S.. The codes I wrote can be reproduced and used in analyzing other major players in a different healthcare industry. It can be used during the M&A pre-screening stage by reviewing the existing locations or affiliates of a company on a map and assisting the business development team( M&A team) to explore which states the company has yet expanded into. Once, the states that the company has not yet expanded into been map out on a map, we can easily conduct the next preliminary analysis, which can be done through API into the US Census data. We can retrieve the data based on the company's strategic M&A criteria, like growth of population, income level, or growth of elerly population. After, we have finished conducting the preliminary research and selected some of the top locations based on the company's strategic M&A criteria, we can proceed further into setting the radius of the proposed locations to the existing locations. This will comes in handy especially if the company operate in an industry where the acquired doctors chairside at a close-by location.
+The purpose of this project is to create maps using various R packages, particularly leaflet, leaflet.extras, and use API to retrieve U.S. Census Bureau data to identify potential white space opportunities based on given M&A criteria. 
 
-Furthermore, the codes can also be used to support denovos projects. Again, by mapping out all the existing locations, the DeNovos department will be able to view the existing locations on a map and come up with some locations for DeNovos activities. 
+I hope this project will be useful during the M&A pre-screening stage to find a list of potential targets that fit within the buyer's strategic M&A goals - whether that is acquiring another company within the identified location(s) or planning out a de-novo development. 
 
-## Additional Information
-In my analysis, the dataset that I found on the Homeland Infrastructure Foudation-Level is not up-to-dated. As of now, Brookdale has already expanded into the proposed state that I recommended in my project, which is Oregon. 
+# Key Findings
+
+This project focused on Brookdale Senior Living, which is one of the largest senior living providers in the U.S. Some of the key findings: 
+in the past years, Brookdale closed 25 facilities spanned across 4 states - WA, TX, Washington D.C., and CA
+Brookdale still has 751 facilities and has the most market presence in TX, FL, and CA with 108, 92, and 79 open facilities, respectively 
+I discovered there are 14 states that Brookdale has yet any market presence, they are: "AK", "HI", "IA", "ME", "MI", "MS", "NV". "NH". "NM", "ND", "OR", "PA", "SD", and "VT"
+conducted in-depth market research and found that OR is one of the fastest-growing states that has an increasing number of older adults
+then I found that Multnomah County and Washington County have the highest projected elderly population in 2019 
+
+# Additional Information
+In my analysis, the dataset that I found on the Homeland Infrastructure Foudation-Level is not up-to-dated. As of now, Brookdale has already expanded into the proposed state that I recommended in my project, which is Oregon. And, the numbers of both closed and still open facilities may also not been up-to-dated. 
 
 # Project Scope 
 1. Examine the dataset 
@@ -15,13 +24,13 @@ In my analysis, the dataset that I found on the Homeland Infrastructure Foudatio
 5. Map out the existing locations on a heatmap 
 6. Identify which states the company has market presence vs states with no market presence 
 7. Conduct initial market research based on the company's M&A strategic goals 
-8. API into the US Census data as needed to find data
+8. utilized these market research findings to pull data from the U.S. Census Bureau using tidycensus and censusapi packages 
 9. Map out the census data 
 10. Proposed new market opportunities based on the company's targeted strategic goals 
 11. Map out the open and recommended locations 
 
 # Future Work
-I plan to deploy the outputs to a shiny, currently working on the app. 
+I plan to deploy the outputs on Shiny, currently working on the app. 
 
 # References
 [Homeland Infrastructure Foundation-Level Data (HIFLD) database - Nursing Homes] https://hifld-geoplatform.opendata.arcgis.com/datasets/geoplatform::nursing-homes/about
