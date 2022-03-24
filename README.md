@@ -1,8 +1,8 @@
 # Purpose
 
-The purpose of this project is to create maps using various R packages, particularly leaflet, leaflet.extras, and use API to retrieve U.S. Census Bureau data to identify potential white space opportunities based on given M&A criteria. 
+The purpose of this project is to visually show the current market presence of a company on maps that I created using various R packages, particularly leaflet, leaflet.extras. Also, to use API to retrieve U.S. Census Bureau data to identify potential white space opportunities based on given M&A criteria. 
 
-I hope this project will be useful during the M&A pre-screening stage to find a list of potential targets that fit within the buyer's strategic M&A goals - whether that is acquiring another company within the identified location(s) or planning out a de-novo development. 
+I hope this project will be useful during the M&A pre-screening stage to find a list of potential targets that fit within the buyer's strategic M&A rationale - whether that is acquiring another company within the identified location(s) or planning out a de-novo development. 
 
 # Key Findings
 
@@ -15,6 +15,8 @@ then I found that Multnomah County and Washington County have the highest projec
 
 # Additional Information
 In my analysis, the dataset that I found on the Homeland Infrastructure Foudation-Level is not up-to-dated. As of now, Brookdale has already expanded into the proposed state that I recommended in my project, which is Oregon. And, the numbers of both closed and still open facilities may also not been up-to-dated. 
+
+This project may serve more purpose for the healthcare sector, particularly companies whose M&A strategic rationale center around the growth rate of population, wealth income, % of insured, proximity to existing locations for chairside opportunities, and access to major hospital connection.
 
 # Project Scope 
 1. Examine the dataset 
