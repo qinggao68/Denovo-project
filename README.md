@@ -14,7 +14,8 @@ This project focused on Brookdale Senior Living, which is one of the largest sen
 - I discovered there are 14 states that Brookdale has yet any market presence, they are: "AK", "HI", "IA", "ME", "MI", "MS", "NV". "NH". "NM", "ND", "OR", "PA", "SD", and "VT"
 - conducted in-depth market research and found that OR is one of the fastest-growing states that has an increasing number of older adults
 ![elder pop. in OR by county](https://github.com/qinggao68/Project-1-Market-Expansion-Analysis/blob/main/Elders_Population_by_County.PNG)
-- then I found that Multnomah County and Washington County have the highest projected elderly population in 2019 
+- then I found that Multnomah County and Washington County have the highest projected elderly population in 2019
+ 
 ![proposed locations](https://github.com/qinggao68/Project-1-Market-Expansion-Analysis/blob/main/Proposed_Locations.PNG)
 # Additional Information
 In my analysis, the dataset that I found on the Homeland Infrastructure Foudation-Level is not up-to-dated. As of now, Brookdale has already expanded into the proposed state that I recommended in my project, which is Oregon. And, the numbers of both closed and still open facilities may also not been up-to-dated. 
