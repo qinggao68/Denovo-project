@@ -32,7 +32,7 @@ This project may serve more purpose for the healthcare sector, particularly comp
 7. Conduct initial market research based on the company's M&A strategic goals 
 8. utilized these market research findings to pull data from the U.S. Census Bureau using tidycensus and censusapi packages 
 9. Map out the census data 
-10. Proposed new market opportunities based on the company's targeted strategic goals 
+10. Proposed new market opportunities based on the company's strategic rationale(s)
 11. Map out the open and recommended locations 
 
 # Future Work
