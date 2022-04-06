@@ -9,7 +9,7 @@ I hope this project will be useful during the M&A pre-screening stage to find a 
 This project focused on Brookdale Senior Living, which is one of the largest senior living providers in the U.S. Some of the key findings I found: 
 - in the past years, Brookdale closed 25 facilities spanned across 4 states - WA, TX, Washington D.C., and CA
 ![closed facilities](https://github.com/qinggao68/Project-1-Market-Expansion-Analysis/raw/main/closed_facilities.PNG)
-- Brookdale still has 751 facilities and has the most market presence in TX, FL, and CA with 108, 92, and 79 open facilities, respectively 
+- Brookdale still has 751 facilities and has the most market presence in TX, FL, and CA with 141, 92, and 79 open facilities, respectively 
 ![still open facilities](https://github.com/qinggao68/Project-1-Market-Expansion-Analysis/blob/main/opened_facilities.PNG)
 - I discovered there are 14 states that Brookdale has yet any market presence, they are: "AK", "HI", "IA", "ME", "MI", "MS", "NV". "NH". "NM", "ND", "OR", "PA", "SD", and "VT"
 - conducted in-depth market research and found that OR is one of the fastest-growing states that has an increasing number of older adults
