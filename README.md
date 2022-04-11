@@ -1,6 +1,6 @@
 # Purpose
 
-The purpose of this project is to visually show the current market presence of a company on maps that I created using various R packages, particularly leaflet, leaflet.extras. Also, to use API to retrieve U.S. Census Bureau data to identify potential white space opportunities based on given M&A criteria. 
+The purpose of this project is to visually show the current market presence of a company on maps that I created using various R packages, particularly leaflet, leaflet.extras. Also, to use API to retrieve U.S. Census Bureau data to identify potential white space opportunities based on given M&A strategic rationale(s). 
 
 I hope this project will be useful during the M&A pre-screening stage to find a list of potential targets that fit within the buyer's strategic M&A rationale - whether that is acquiring another company within the identified location(s) or planning out a de-novo development. 
 
