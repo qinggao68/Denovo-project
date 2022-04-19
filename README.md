@@ -42,4 +42,4 @@ I plan to deploy the outputs on Shiny server, currently working on the app.
 [Homeland Infrastructure Foundation-Level Data (HIFLD) database - Nursing Homes] https://hifld-geoplatform.opendata.arcgis.com/datasets/geoplatform::nursing-homes/about
 
 [Leaflet for R] https://rstudio.github.io/leaflet/choropleths.html
-
+[Tidycensus] https://walker-data.com/tidycensus/articles/basic-usage.html
