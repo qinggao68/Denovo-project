@@ -10,11 +10,10 @@ I designed and built a web application to showcase my analysis. Please see the s
 
 1. tab 1 - facilities
 - mapped out Brookdale Senior Living's numbers of facilities, found they have a total of 776 facilities
-- closed 25 facilities
+- closed 25 facilities that spanned across 4 states - WA, TX, Washington D.C., and CA 
 - still have 751 open facilities(at the time of this analysis) 
- - found that Brookdale has the most market presence in TX, FL, and CA with 141, 92, and 79 open facilities, respectively 
-- the facilities that Brookdale had closed spanned across 4 states - WA, TX, Washington D.C., and CA
-![closed facilities](https://github.com/qinggao68/Project-1-Market-Expansion-Analysis/raw/main/closed_facilities.PNG)
+- found that Brookdale has the most market presence in TX, FL, and CA with 141, 92, and 79 open facilities, respectively 
+![facilities stats](https://github.com/qinggao68/Project-1-Market-Expansion-Analysis/blob/main/open%20facilities%20vs%20closed%20facilities.PNG)
 
 
 This project focused on Brookdale Senior Living, which is one of the largest senior living providers in the U.S. Some of the key findings I found: 
