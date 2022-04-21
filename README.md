@@ -6,7 +6,11 @@ I hope this project will be useful during the M&A pre-screening stage to find a 
 
 # Key Findings
 
-I designed and built a web application to showcase my analysis. Please see the screenshots below: 
+I designed and built a web application to showcase my analysis. 
+
+The link to the app is: https://christina-gao.shinyapps.io/Brookdale-Senior-Living-Market-Expansion-App/
+
+Please see the screenshots and a brief summary of what I did in each step: 
 
 1. tab 1 - facilities
 - mapped out Brookdale Senior Living's numbers of facilities, found they have a total of 776 facilities
@@ -15,18 +19,20 @@ I designed and built a web application to showcase my analysis. Please see the s
 - found that Brookdale has the most market presence in TX, FL, and CA with 141, 92, and 79 open facilities, respectively 
 ![facilities stats](https://github.com/qinggao68/Project-1-Market-Expansion-Analysis/blob/main/open%20facilities%20vs%20closed%20facilities.PNG)
 
-
-This project focused on Brookdale Senior Living, which is one of the largest senior living providers in the U.S. Some of the key findings I found: 
-- in the past years, Brookdale closed 25 facilities 
-![closed facilities](https://github.com/qinggao68/Project-1-Market-Expansion-Analysis/raw/main/closed_facilities.PNG)
-
-![still open facilities](https://github.com/qinggao68/Project-1-Market-Expansion-Analysis/blob/main/opened_facilities.PNG)
+2. tab 2 - Heatmap of OR's elderly population 
 - I discovered there are 14 states that Brookdale has yet any market presence, they are: "AK", "HI", "IA", "ME", "MI", "MS", "NV". "NH". "NM", "ND", "OR", "PA", "SD", and "VT"
-- conducted in-depth market research and found that OR is one of the fastest-growing states that has an increasing number of older adults
-![elder pop. in OR by county](https://github.com/qinggao68/Project-1-Market-Expansion-Analysis/blob/main/Elders_Population_by_County.PNG)
-- then I found that Multnomah County and Washington County have the highest projected elderly population in 2019
- 
-![proposed locations](https://github.com/qinggao68/Project-1-Market-Expansion-Analysis/blob/main/Proposed_Locations.PNG)
+- then I conducted in-depth market research and found that OR is one of the fastest-growing states that has an increasing number of older adults
+![elder pop. in OR by county](https://github.com/qinggao68/Project-1-Market-Expansion-Analysis/blob/main/heatmap%20of%20OR%20elderly%20pop..PNG)
+
+3. tab 3 - Proposal of two potential white-space opportunities
+- I used tidycensus package to API US Census data and found that Multnomah County and Washington County have the highest projected elderly population in 2019
+- then I mapped out these two locations with surrounding states' market presence  
+![proposed locations](https://github.com/qinggao68/Project-1-Market-Expansion-Analysis/blob/main/proposed%202%20areas.PNG)
+
+4. tab 4 - Dynamic and interactive data table
+- I built a dynamic data table that allow filtering 
+![data table](https://github.com/qinggao68/Project-1-Market-Expansion-Analysis/blob/main/dynamic%20interactive%20data%20table.PNG)
+
 # Additional Information
 In my analysis, the dataset that I found on the Homeland Infrastructure Foudation-Level is not up-to-dated. As of now, Brookdale has already expanded into the proposed state that I recommended in my project, which is Oregon. And, the numbers of both closed and still open facilities may also not been up-to-dated. 
 
@@ -44,9 +50,6 @@ This project may serve more purpose for the healthcare sector, particularly comp
 9. Map out the census data 
 10. Proposed new market opportunities based on the company's strategic rationale(s)
 11. Map out the open and recommended locations 
-
-# Future Work
-I plan to deploy the outputs on Shiny server, currently working on the app. 
 
 # References
 [Homeland Infrastructure Foundation-Level Data (HIFLD) database - Nursing Homes] https://hifld-geoplatform.opendata.arcgis.com/datasets/geoplatform::nursing-homes/about
