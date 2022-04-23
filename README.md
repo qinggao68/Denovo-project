@@ -8,7 +8,7 @@ I hope this project will be useful during the M&A pre-screening stage to find a 
 
 I designed and built a web application to showcase my analysis. 
 
-The link to the app is: https://christina-gao.shinyapps.io/Brookdale-Senior-Living-Market-Expansion-App/
+The link to the app is: https://christina-gao.shinyapps.io/Brookdale-Senior-Living-Market-Expansion-App/(need to update the code, will be re-upload shortly)
 
 Please see the screenshots and a brief summary of what I did in each step: 
 
