@@ -31,7 +31,7 @@ Please see the screenshots and a brief summary of what I did in each step:
 
 4. tab 4 - Dynamic and interactive data table
 - I built a dynamic data table that allow filtering 
-![data table](https://github.com/qinggao68/Project-1-Market-Expansion-Analysis/blob/main/dynamic%20interactive%20data%20table.PNG)
+
 
 # Additional Information
 In my analysis, the dataset that I found on the Homeland Infrastructure Foudation-Level is not up-to-dated. As of now, Brookdale has already expanded into the proposed state that I recommended in my project, which is Oregon. And, the numbers of both closed and still open facilities may also not been up-to-dated. 
