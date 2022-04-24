@@ -8,7 +8,7 @@ I hope this project will be useful during the M&A pre-screening stage to find a 
 
 I designed and built a web application to showcase my analysis. 
 
-The link to the app is: https://christina-gao.shinyapps.io/Brookdale-Senior-Living-Market-Expansion-App/ (need to update the code, will be re-upload shortly)
+The link to the app is: https://christina-gao.shinyapps.io/Brookdale-Senior-Living-Market-Expansion-App/ 
 
 Please see the screenshots and a brief summary of what I did in each step: 
 
@@ -29,8 +29,9 @@ Please see the screenshots and a brief summary of what I did in each step:
 - then I mapped out these two locations with surrounding states' market presence  
 ![proposed locations](https://github.com/qinggao68/Project-1-Market-Expansion-Analysis/blob/main/proposed%202%20areas.PNG)
 
-4. tab 4 - Dynamic and interactive data table - Work in Progress
+4. tab 4 - Dynamic and interactive data table 
 - I built a dynamic data table that allow filtering 
+![dynamic table](https://github.com/qinggao68/Project-1-Market-Expansion-Analysis/blob/main/dynamic%20table.PNG)
 
 
 # Additional Information
